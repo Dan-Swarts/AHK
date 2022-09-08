@@ -6,6 +6,7 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 !LShift::
 
     BreakLoop = 0
+    DllCall("mouse_event", uint, 1, int, -298, int, 0)
     Send {Lbutton down}
     Loop {
 
