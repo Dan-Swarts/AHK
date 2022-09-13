@@ -6,15 +6,16 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 !LShift::
 
     BreakLoop = 0
-    DllCall("mouse_event", uint, 1, int, -298, int, 0)
+    Sleep, 300
+    ; DllCall("mouse_event", uint, 1, int, -298, int, 0)
+    Sleep, 300
     Send {Lbutton down}
     Loop {
 
-        Send {w down}
         sleep 150
-        Send {d down}
+        Send, {d down}
         sleep 150
-        Loop, 12 {
+        Loop, 14 {
             if (BreakLoop = 1){
                 break
             }
@@ -25,17 +26,18 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
             DllCall("mouse_event", uint, 1, int, 0, int, -2)
 
         }
-        Send {w up}
-        sleep 300
-        Send {d up}
-        sleep 150
+        Sleep, 150
+        Send, {d up}
+        Sleep, 150
 
         if (BreakLoop = 1){
             break
         }
 
+        sleep 150
         Send {s down}
-        Loop, 15 {
+        sleep 150
+        Loop, 14 {
             if (BreakLoop = 1){
                 break
             }
@@ -46,7 +48,10 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
             DllCall("mouse_event", uint, 1, int, 0, int, -2)
 
         }
-        Send {s up}
+
+        Sleep, 150
+        Send, {s up}
+        Sleep, 150
 
         if (BreakLoop = 1){
             break
